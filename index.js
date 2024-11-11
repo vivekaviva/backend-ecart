@@ -9,6 +9,7 @@ const connectDB = require("./config/db");
 dotenv.config({ path: path.join(__dirname, "config", "config.env") });
 
 const productRouter = require("./routes/product");
+const orderRouter = require("./routes/order");
 
 app.use(express.json());
 app.use(cors());
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(productRouter);
+app.use(orderRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server listening to the port ${process.env.PORT}`);
